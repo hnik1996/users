@@ -1,7 +1,6 @@
 package com.ecommerce.users.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +12,9 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "user_attributes")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDetail {
     @Id
     private long id;
@@ -20,7 +22,7 @@ public class UserDetail {
     @Column(name = "user_id")
     private long userId;
     @Column(name = "attribute_id")
-    private String attributeId;
+    private String attribute_id;
     private String value;
     @Column(name = "value_blob")
     private String valueBlob;
@@ -29,7 +31,7 @@ public class UserDetail {
     @Column(name = "updated_ts")
     private Date updatedTs;
     @Column(name = "creator_user_id")
-    private long creatorUserId;
+    private Long creatorUserId;
     @Column(name = "updater_user_id")
-    private long updaterUserId;
+    private Long updaterUserId;
 }

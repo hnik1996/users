@@ -1,13 +1,10 @@
 package com.ecommerce.users.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
@@ -15,28 +12,37 @@ import java.util.Date;
 @Entity
 @Table(name = "users")
 @Data
-public class User {
+@AllArgsConstructor
+@NoArgsConstructor
+public class User implements Serializable {
     @Id
+    @Column
     private long id;
+    @Column
     private String uid;
+    @Column
     private char status;
-    @Column(name = "username")
-    private String userName;
+    @Column
+    private String username;
+    @Column
     private String msisdn;
+    @Column
     private String email;
     @Column(name = "firstname")
     private String firstName;
     @Column(name = "lastname")
     private String lastName;
+    @Column
     private String password;
-    private char role;
+    @Column
+    private Character role;
     @Column(name = "created_ts")
     private Date createdTs;
     @Column(name = "updated_ts")
     private Date updatedTs;
     @Column(name = "creator_user_id")
-    private long creatorUserId;
+    private Long creatorUserId;
     @Column(name = "updater_user_id")
-    private long updaterUserId;
+    private Long updaterUserId;
 }
 
